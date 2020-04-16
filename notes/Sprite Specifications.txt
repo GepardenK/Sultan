@@ -1,0 +1,14 @@
+
+Ship Sprite:
+- 64x64
+- Should be split into "strips" of the ship tilting for a turn (horizontally) from middle to right
+- Each strip of horizontal tilt should cover animation for each given degree of vertical tilt (forward/backwars tilt)
+- Each strip must be equally long, lenght of strips must be assigned to a variable in obj_ship
+- Arrange animation strips in sprite from forwardmost tilt strip to backwardmost tilt strip
+- Origin: Middle Centre
+
+Powerup/Booster Sprites:
+- 16x16
+- Should be 34 frames (subimages) each
+- Animation should cover 180° degrees of rightward rotation, 5° for each frame. (only 1 frame for each flipping pint at 0°/90°, making for 34 frames total)
+- Origin: Top Left

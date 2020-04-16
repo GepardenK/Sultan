@@ -1,0 +1,79 @@
+SULTAN OF SATURN
+
+TO DO:
+
+- Booster quick pickup flash: a quick flash, colored with type, when picking up a booster. (possibly shader)
+  To make pickup feedback "popp" more. Should be on layer above Ship. To be combined with booster dissolve effect. 
+
+- Bouncables Test: vertical pushback hit force avhenging av hvor langt fra midten bullet treffer
+  ^bruk hdir fra parent_B bullet collition event
+  Plus: bytte "resistance" fra / til *, mao en slipperyness variabel, juster hit force deretter  
+
+- skriv om par_B physics til å bruke lerp(), spesielt for glide og pushback!!
+  Hdir skal også styre hvor mye hit_force som går til glide vs pushback, de skal ikke være sepparert.
+  Collition med bullet skal bare finne hdir og hit_force; glide og pushback håndteres ene og alene av step, samlet under en if(hit_force)
+
+- Omskriv Ship movement. Både keyboard og reimplementer 'mouse movement'. 
+  Bruk lerp() til begge systemene for å lage akselerasjon. Husk: Hindre x+y bevegelse bug, 
+  hvor farten til de to rettningene legges sammen når man beveger seg på skrått. 
+
+- Omskriv variabler og stats for obj_ship, implementer boostables slik som design doc beskriver
+
+- Lage ny sprite til Ship med flere strips for vertikal bevegelse 
+
+- Fullføre bouncables: de må kunne krasje i hverandre(??), skal kunne skrus av og på med en variabel
+
+- Legge til partikkeleffekter for: bullet destroyed
+
+- løsning for powerup pickup particle effect er middlertidig, fiks den. 
+  Trenger individuelle effekter pr powerup (og fra emitter).
+  Ide: blinkene små stjerner som følger gamle posisjon til powerup ca et sekund. 
+  Videre: Sterkere effekt basert på cocktail bonus
+  
+- Emitter løsning til bouncable pushback effekt. Partikler lages på bouncable over tid og
+  beverger seg rett opp. 
+  
+- Gå over powerup/booster renders (nok en gang), spesielt 'green booster' som er en pixel for kort vertikalt. 
+  Purpel passer ikke til shield, bør gjøres om, men ideen kan brukes senere til "sludge". 
+
+- Alle particle "types" skal være lokale, ikke globale. 
+  Alle skal settes i en array ved creation (en pr objekt med lokale partikler)
+  Alle skal ødelegges ved 'game end' ved å iterere gjennom arrayen
+  
+- Hit_force fra bullets til boncables bør bli mindre ettersom en bullet går gjennom flere bouncables (men aldri 0)
+  Dette slik at the skal bli lettere å "samle" bouncables verticalt (bouncables lengre bak skal ikke kastes like mye opp som bouncables lengre frem, hvis begge treffes av samme bullet)
+  Denne effekten bør ikke være for sterk
+  
+- Finn en ny booster effekt for grønn. Skal være fem totalt. 
+
+IDEER: (SKRIV DISSE INN I DESIGN DOC)
+
+- Bouncables (Boosters) "wobble" når de er under effekt av Glide Spin. 
+
+- Proximity mines: oppfører seg, og spawner, på samme måte som som powerups (er bounceables). 
+  Kan skytes for å sprette de rundt, også ala powerups.
+  Sprenger når de er i nærheten av et skip etter noen raske røde blink (gjelder både venn og fiende).
+  Proximity mines vil ikke detonere hvis skip i nærheten kjører sakte nok (relativ fart: skip / mine), kjører man ekstra sakte kan man selv dunke i dem.
+  Finnes en annen variant av miner med "hår", denne vil alltid ekplodere ved kontak (men ikke nærlighenhet slik som proximity).
+  Begge varianter finnes også i en "svak" versjon som alltid exploderer når den blir skutt. 
+  
+  
+- 'Strings' som bouncables og miner etc kan "henge" på. Gjør at de bare kan dyttes horizontalt.
+  Eksplosjon nær en string, feks en mine, kan lage et kutt i stringen - her kan hengende bouncables dyttes ut og løsrives vertikalt.   
+  
+- Astroider: bounceables som finnes i forskjellige størrelser.
+  Variant som vil ødelegges etter å ha blitt truffet noen ganger, deler seg i mindre biter
+  Variant som ikke blir ødelagt (utseende: mye jern)
+  Swermer av 16x16 astroider.
+  
+- Powerups oppgraderer skip baser på rekkefølgen man plukker de opp (determenistisk),
+  Kan skyte powerups for å hindre de å flyte vekk fra skjermen, dermed spare de til senere,
+  Blir man truffet mister man halvparten av samlede powerups
+  
+- Shader effekter. Feks et "hvitt glimt" over spriten til ting som blir truffet.
+  Fargede "glimt" over Shiå når man plukker opp powerups
+  
+- Monstere, alien insekter?, på størresle med boosters(16x16). 
+  Oppfører seg som boosters når truffet, men beveger seg mot Ship i svermer. 
+  
+

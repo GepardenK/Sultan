@@ -1,0 +1,17 @@
+
+1: {Done} Lag 3 stat upgrades, trenger først 32x32 sprites:
+	- Additional gun (øker 'Legacy_gunNumber')
+	- Better gun reharge (øker 'stat_gunEnergy')
+	- Better engines (øker 'stat_engineEnergy')
+	
+	Legacy_gunNumber utgår senere, men skal lages for nå. Ytteligere stats (bullet speed, etc)
+	trengs lenger ikke da disse blir en del av weapon upgrades. 
+
+2: {Done} lag en spawner for disse (til testing)
+
+3: implementer disse tre statsene i koden til Ship, skal bytte ut systemene som finnes nå.
+    - "Additional gun" trenger ingen nye systemer enda {Done}
+	- "Better gun reharge" trenger nytt system for å måle firerate (hver gun teller oppover mot et nivå som kreves for å fyre) {Done}
+	- "Better engines" krever rewrite av hele bevegelsessystemet. Ta hensyn til Lerp() og diagonal bevegelse. Samkjør mouse + keyboard.
+
+4: Boosters (gamle powerups) gir ikke lenger stat upgrades. Implementer nye boosters i følge design doc. 
